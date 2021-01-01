@@ -35,6 +35,7 @@ jobs:
           
       - name: Formula
         run: |
+          mkdir -p Formula
           echo "release tag: '${RELEASE_TAG}'"
           echo "release sha: '${ASSET_SHA}'"
           sed -e "s/TAGVALUE/${RELEASE_TAG}/g" -e "s/SHAVALUE/${ASSET_SHA}/g" Template/followme.tmpl > Formula/followme.rb
