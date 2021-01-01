@@ -28,7 +28,7 @@ jobs:
       - name: Release SHA
         run: |
           echo "release tag: ${RELEASE_TAG}"
-          ASSET_URL=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" -H "Accept: application/vnd.github.v3+json" "https://api.github.com/repos/mchmarny/followme/releases/tags/${RELEASE_TAG}" | jq '.assets[] | select(.name=="followme-darwin-amd64.tar.gz") | .url')
+          ASSET_URL="https://github.com/mchmarny/followme/releases/download/${RELEASE_TAG}/followme"
           ASSET_SHA=$(curl -L -f -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" $ASSET_URL 2> /dev/null | shasum -a 256 | cut -f1 -d" ")
           echo "release sha: '${ASSET_SHA}'"
           echo "ASSET_SHA=${ASSET_SHA}" >> $GITHUB_ENV
