@@ -8,8 +8,10 @@ class Followme < Formula
   bottle :unneeded
 
   def install
-    bin.install_symlink "followme-darwin-amd64" => "followme"
-    bin.install "followme" => "followme"
+    libexec.install Dir["*"]
+
+    bin.install_symlink libexec/"followme-darwin-amd64"
+    bin.install_symlink bin/"followme-darwin-amd64" => "followme"
   end
 
   test do
