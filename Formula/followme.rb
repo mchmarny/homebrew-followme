@@ -13,12 +13,16 @@ class Followme < Formula
     sha256 "7b45006f72c884dbdcf46de91c23aa5e9d8eed570e8a54c3d07865c9274ddf41"
   end
   
-
   def install
     libexec.install Dir["*"]
 
-    bin.install_symlink libexec/"followme-darwin-amd64"
-    bin.install_symlink bin/"followme-darwin-amd64" => "followme"
+    if OS.mac?
+      bin.install_symlink libexec/"followme-darwin-amd64"
+      bin.install_symlink bin/"followme-darwin-amd64" => "followme"
+    elsif OS.linux?
+      bin.install_symlink libexec/"followme-linux-amd64"
+      bin.install_symlink bin/"followme-linux-amd64" => "followme"
+    end
   end
 
   test do
