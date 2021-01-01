@@ -29,16 +29,21 @@ jobs:
         run: |
           echo "release tag: ${RELEASE_TAG}"
           wget "https://github.com/mchmarny/followme/releases/download/${RELEASE_TAG}/followme-darwin-amd64.tar.gz"
-          ASSET_SHA=$(shasum -a 256 followme-darwin-amd64.tar.gz | cut -f1 -d" ")
-          echo "release sha: '${ASSET_SHA}'"
-          echo "ASSET_SHA=${ASSET_SHA}" >> $GITHUB_ENV
+          MAC_SHA=$(shasum -a 256 followme-darwin-amd64.tar.gz | cut -f1 -d" ")
+          echo "mac release sha: '${MAC_SHA}'"
+          echo "MAC_SHA=${MAC_SHA}" >> $GITHUB_ENV
+          wget "https://github.com/mchmarny/followme/releases/download/${RELEASE_TAG}/followme-linux-amd64.tar.gz"
+          LINUX_SHA=$(shasum -a 256 followme-linux-amd64.tar.gz | cut -f1 -d" ")
+          echo "linux release sha: '${LINUX_SHA}'"
+          echo "LINUX_SHA=${LINUX_SHA}" >> $GITHUB_ENV
           
       - name: Formula
         run: |
           mkdir -p Formula
           echo "release tag: '${RELEASE_TAG}'"
-          echo "release sha: '${ASSET_SHA}'"
-          sed -e "s/TAGVALUE/${RELEASE_TAG}/g" -e "s/SHAVALUE/${ASSET_SHA}/g" Template/followme.tmpl > Formula/followme.rb
+          echo "release sha (mac): '${MAC_SHA}'"
+          echo "release sha (linux): '${LINUX_SHA}'"
+          sed -e "s/TAGVALUE/${RELEASE_TAG}/g" -e "s/MAC_SHA/${MAC_SHA}/g" -e "s/LINUX_SHA/${LINUX_SHA}/g" Template/followme.tmpl > Formula/followme.rb
 
       - name: Commit
         run: |

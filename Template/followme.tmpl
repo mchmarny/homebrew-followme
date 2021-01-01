@@ -3,9 +3,16 @@ class Followme < Formula
   desc "Utility to monitor Twitter followers"
   homepage "https://thingz.io"
   version "TAGVALUE"
-  url "https://github.com/mchmarny/followme/releases/download/TAGVALUE/followme-darwin-amd64.tar.gz"
-  sha256 "SHAVALUE"
   bottle :unneeded
+
+  if OS.mac?
+    url "https://github.com/mchmarny/followme/releases/download/TAGVALUE/followme-darwin-amd64.tar.gz"
+    sha256 "MAC_SHA"
+  elsif OS.linux?
+    url "https://github.com/mchmarny/followme/releases/download/TAGVALUE/followme-linux-amd64.tar.gz"
+    sha256 "LINUX_SHA"
+  end
+  
 
   def install
     libexec.install Dir["*"]
