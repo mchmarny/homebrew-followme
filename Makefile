@@ -1,4 +1,4 @@
-APP_VERSION      ?=v0.3.1
+APP_VERSION      ?=v0.3.7
 
 .PHONY: all
 all: help
