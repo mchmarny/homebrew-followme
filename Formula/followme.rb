@@ -4,7 +4,7 @@ class Followme < Formula
   homepage "https://thingz.io"
   version "v0.3.8"
   url "https://github.com/mchmarny/followme/releases/download/v0.3.8/followme-darwin-amd64.tar.gz"
-  sha256 "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  sha256 "c6eb61222ff4205c89e7c11676e8f6cb80ac417e879aa8bf73c61a0a5184b99f"
   bottle :unneeded
 
   def install
