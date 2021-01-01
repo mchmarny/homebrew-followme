@@ -2,12 +2,13 @@
 class Followme < Formula
   desc "Utility to monitor Twitter followers"
   homepage "https://thingz.io"
+  version "TAGVALUE"
   url "https://github.com/mchmarny/followme/releases/download/TAGVALUE/followme-darwin-amd64.tar.gz"
   sha256 "SHAVALUE"
   bottle :unneeded
 
   def install
-    bin.install_symlink "followme" => "followme-darwin-amd64"
+    bin.install_symlink "followme-darwin-amd64" => "followme"
     bin.install "followme" => "followme"
   end
 
