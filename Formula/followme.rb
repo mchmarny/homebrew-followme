@@ -2,15 +2,15 @@
 class Followme < Formula
   desc "Utility to monitor Twitter followers"
   homepage "https://thingz.io"
-  version "v0.3.11"
+  version "v0.4.2"
   bottle :unneeded
 
   if OS.mac?
-    url "https://github.com/mchmarny/followme/releases/download/v0.3.11/followme-darwin-amd64.tar.gz"
-    sha256 "4f2115f03bb49ee87e283c70243751c136ae3ab0f47441a51de6c6d65b443d6c"
+    url "https://github.com/mchmarny/followme/releases/download/v0.4.2/followme-darwin-amd64.tar.gz"
+    sha256 "4639ded8c66e61229ac3ebd851a2b45ff4030890811003105937c7a287838918"
   elsif OS.linux?
-    url "https://github.com/mchmarny/followme/releases/download/v0.3.11/followme-linux-amd64.tar.gz"
-    sha256 "2b73c90808188251e0575ac4f0a97aa50fcd473b1bbcf88a42e11935695319ce"
+    url "https://github.com/mchmarny/followme/releases/download/v0.4.2/followme-linux-amd64.tar.gz"
+    sha256 "3142b7602d44c2aa7cccc3d4cc811252731eb106a0bf1a5ee1ccc17bc2292108"
   end
   
   def install
